@@ -22,7 +22,8 @@ const getDateTime = () => {
     }
 
     let statement = 'hmm'
-    if (hours >= 5 && hours <= 11) {
+    console.log(hours)
+    if (hours >= 0 && hours <= 11) {
         statement = 'Good Morning'
     } else if (hours >= 12 && hours <= 17) {
         statement = 'Good Afternoon'
@@ -34,6 +35,8 @@ const getDateTime = () => {
     if (hours > 12) {
         suffix = 'P.M'
         hours -= 12
+    } else if (hours === 12) {
+        suffix = 'P.M'
     } else {
         if (hours === 0) {
             hours = 12
