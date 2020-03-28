@@ -1,11 +1,75 @@
-body {
-    background-color: black;
-    max-width: 500px;
-    margin: auto;
-}
-
-h1,
-h2 {
-    font-family: 'Open Sans', sans-serif;
-    color: white;
-}
+ body {
+     background-color: black;
+     max-width: 500px;
+     margin: auto;
+     background-image: url('https://i.redd.it/5oxeqrahdap41.jpg') no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+ }
+ 
+ #greetImage {
+     max-width: 100%;
+     max-height: 100vh;
+     height: auto;
+ }
+ 
+ h1,
+ h2 {
+     text-shadow: 2px 2px 4px black;
+     -webkit-text-stroke-width: 1px;
+     -webkit-text-stroke-color: black;
+     font-family: 'Open Sans', sans-serif;
+     color: white;
+     animation: fadeIn ease 10s;
+     -webkit-animation: fadeIn ease 10s;
+     -moz-animation: fadeIn ease 10s;
+     -o-animation: fadeIn ease 10s;
+     -ms-animation: fadeIn ease 10s;
+ }
+ 
+ @keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 1;
+     }
+ }
+ 
+ @-moz-keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 1;
+     }
+ }
+ 
+ @-webkit-keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 1;
+     }
+ }
+ 
+ @-o-keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 1;
+     }
+ }
+ 
+ @-ms-keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+     100% {
+         opacity: 1;
+     }
+ }
