@@ -1,10 +1,8 @@
 const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const getOrdinal = n => n + (n > 0 ? ['th', 'st', 'nd', 'rd'][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : '')
-const getDateTime = () => {
-    const timeHead = document.getElementById("time")
+const getDate = () => {
     const dateHead = document.getElementById("date")
-    const stateHead = document.getElementById("state")
     const currDate = new Date()
         //date
     let year = currDate.getFullYear()
@@ -12,7 +10,14 @@ const getDateTime = () => {
     let dayNum = currDate.getDate()
     let day = days[currDate.getDay()]
     let fullDate = `${day}, ${month} ${getOrdinal(dayNum)}, ${year}`
-        //time
+    dateHead.innerHTML = fullDate
+}
+
+const getTime = () => {
+    const currDate = new Date()
+    const timeHead = document.getElementById("time")
+    const stateHead = document.getElementById("state")
+
     let hours = currDate.getHours()
     let minutes = currDate.getMinutes()
     if (minutes === 0) {
@@ -23,12 +28,14 @@ const getDateTime = () => {
 
     let statement = 'hmm'
     console.log(hours)
-    if (hours >= 0 && hours <= 11) {
+    if (hours >= 0 && hours < 12) {
         statement = 'Good Morning'
-    } else if (hours >= 12 && hours <= 17) {
+    } else if (hours >= 12 && hours < 17) {
         statement = 'Good Afternoon'
-    } else {
+    } else if (hours >= 17 && hours < 20) {
         statement = 'Good Evening'
+    } else {
+        statement = 'Good Night'
     }
 
     let suffix = 'hm'
@@ -44,12 +51,10 @@ const getDateTime = () => {
         suffix = 'A.M'
     }
     let fullTime = `${hours}:${minutes} ${suffix}`
-    console.log(fullDate)
     console.log(fullTime)
 
-    dateHead.innerHTML = fullDate
     timeHead.innerHTML = fullTime
     stateHead.innerHTML = statement
 }
 
-setInterval(getDateTime, 60000);
+setInterval(getTime, 2000);

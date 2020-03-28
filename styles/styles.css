@@ -1,6 +1,7 @@
  body {
      background-color: black;
      max-width: 500px;
+     min-height: 100%;
      margin: auto;
      background-image: url('https://i.redd.it/5oxeqrahdap41.jpg') no-repeat center center fixed;
      -webkit-background-size: cover;
@@ -9,10 +10,8 @@
      background-size: cover;
  }
  
- #greetImage {
-     max-width: 100%;
-     max-height: 100vh;
-     height: auto;
+ html {
+     min-height: 100%;
  }
  
  h1,
