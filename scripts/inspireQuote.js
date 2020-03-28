@@ -1,5 +1,5 @@
 const getQuote = () => {
-    const endpoint = 'https://quotes.rest/qod.json'
+    const endpoint = 'https://quotes.rest/qod'
     fetch(endpoint).then(netResp => {
             if (netResp.ok) {
                 return netResp.json()
