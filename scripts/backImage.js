@@ -36,7 +36,7 @@ const setImage = json => {
 
     console.log(imageUrls)
     const randomIndex = Math.floor(Math.random() * imageUrls.length)
-    const chosenUrl = imageUrls[randomIndex]
+    const chosenUrl = imageUrls[randomIndex].replace('http', 'https')
     console.log(chosenUrl)
     bodyBack.backgroundImage = `url(${chosenUrl})`
 }
