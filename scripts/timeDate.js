@@ -17,7 +17,7 @@ const getDateTime = () => {
     let minutes = currDate.getMinutes()
     if (minutes === 0) {
         minutes = '00'
-    } else if (minutes > 10) {
+    } else if (minutes < 10) {
         minutes = `0${minutes}`
     }
 
@@ -42,10 +42,11 @@ const getDateTime = () => {
     }
     let fullTime = `${hours}:${minutes} ${suffix}`
     console.log(fullDate)
+    console.log(fullTime)
 
     dateHead.innerHTML = fullDate
     timeHead.innerHTML = fullTime
     stateHead.innerHTML = statement
 }
 
-setInterval(getDateTime, 1000);
+setInterval(getDateTime, 60000);
