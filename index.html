@@ -8,16 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehul Pillai</title>
     <script type="text/javascript" defer src="scripts/timeDate.js"></script>
-
+    <script type="text/javascript" defer src="scripts/inspireQuote.js"></script>
+    <script type="text/javascript">
+        window.onload = () => {
+            getDateTime()
+            getQuote()
+        }
+    </script>
 </head>
 
-<body onload="getDateTime()">
-    <h1 align="center">Hello World</h1>
-    <h2 align="center">Pretty Epic</h2>
-    <br><br><br>
-    <h1 id="date" align="center">DATE</h1>
-    <h1 id="time" align="center">TIME</h1>
+<body>
     <br>
+    <h1 id="quote" align="center" onload="getQuote()">Hello World</h1>
+    <h2 id="author" align="center">Pretty Epic</h2>
+    <br><br><br>
+    <h1 id="date" align="center" onload="getDateTime()">DATE</h1>
+    <h1 id="time" align="center">TIME</h1>
     <h2 id="state" align="center">GOOD</h2>
 </body>
 
