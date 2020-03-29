@@ -1,6 +1,5 @@
  body {
      background-color: black;
-     max-width: 500px;
      min-height: 100%;
      margin: auto;
      background-image: url('https://i.redd.it/5oxeqrahdap41.jpg') no-repeat center center fixed;
@@ -14,8 +13,12 @@
      min-height: 100%;
  }
  
- h1,
- h2 {
+ #quoteStuff {
+     width: 80%;
+     margin: auto;
+ }
+ 
+ .mainPage {
      text-shadow: 2px 2px 4px black;
      -webkit-text-stroke-width: 1px;
      -webkit-text-stroke-color: black;
@@ -26,6 +29,73 @@
      -moz-animation: fadeIn ease 10s;
      -o-animation: fadeIn ease 10s;
      -ms-animation: fadeIn ease 10s;
+ }
+ 
+ #quote {
+     font-size: larger;
+ }
+ 
+ #author {
+     font-size: large;
+ }
+ 
+ #date {
+     font-size: xx-large;
+ }
+ 
+ #time {
+     font-size: xx-large;
+ }
+ 
+ #state {
+     font-size: x-large;
+ }
+ 
+ .searchDiv {
+     text-align: center;
+ }
+ 
+ .searchDiv>input {
+     text-align: left;
+ }
+ 
+ #searchBar[type="search"]:focus {
+     outline: none;
+     background-color: black;
+ }
+ 
+ #searchBar {
+     color: white;
+     border: none;
+     box-shadow: inset;
+     opacity: 0.7;
+     border-top-style: hidden;
+     border-right-style: hidden;
+     border-left-style: hidden;
+     border-bottom-style: hidden;
+     width: 60%;
+     font-size: large;
+     background-color: #817c7c;
+     border-radius: 30px;
+     font-size: 18px;
+     padding-left: 00px;
+     padding: 20px;
+ }
+ 
+ input[type=search]::-webkit-input-placeholder {
+     color: wheat;
+ }
+ 
+ input[type=search]:-moz-placeholder {
+     color: wheat;
+ }
+ 
+ input[type=search]::-moz-placeholder {
+     color: wheat;
+ }
+ 
+ input[type=search]:-ms-input-placeholder {
+     color: wheat;
  }
  
  @keyframes fadeIn {

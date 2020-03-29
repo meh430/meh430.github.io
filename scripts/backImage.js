@@ -16,7 +16,7 @@ const getImages = () => {
 
             throw new Error('Failed to get image')
         }, netError => console.log(netError.message))
-        .then(jsonResponse => setImage(jsonResponse))
+        .then(jsonResponse => setTimeout(() => setImage(jsonResponse), 4500))
 }
 
 const setImage = json => {
