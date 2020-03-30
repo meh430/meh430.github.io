@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="/styles/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mehul Pillai</title>
@@ -23,20 +22,25 @@
 
 <body>
     <br>
-    <div id="dateStuff" align="center">
+    <div id="dateStuff" align="bottom">
         <h1 id="date" align="center" class="mainPage">DATE</h1>
         <h2 id="time" align="center" class="mainPage">TIME</h2>
         <h3 id="state" align="center" class="mainPage">GOOD</h3>
     </div>
     <br><br><br><br>
     <div class="searchDiv">
-        <input type="search" id="searchBar" align="center" placeholder="Search..." onkeypress="performSearch(event)" />
+        <input type="search" id="searchBar" align="center" placeholder="Search..." onkeypress="performSearch(event)" onfocus="document.body.style.backdropFilter = 'blur(10px)'" onblur="document.body.style.backdropFilter = 'blur(0px)'" />
     </div>
     <br><br><br><br><br>
     <div id="quoteStuff" align="center">
         <h3 id="quote" align="center" class="mainPage">Hello World</h3>
         <h4 id="author" align="center" class="mainPage">Pretty Epic</h4>
     </div>
+    <br><br><br><br>
+    <center>
+        <a href="#" class="myButton" align="center">about</a>
+    </center>
+    <br><br><br>
 </body>
 
 </html>
