@@ -20,7 +20,8 @@ const getImages = () => {
 }
 
 const setImage = json => {
-    const bodyBack = document.body.style
+    const bodyBack = document.getElementById("wrapper").style
+
     let images = ''
     console.log(json)
     if (!json.length) {
