@@ -6,8 +6,24 @@ const apiKey = "5e7f67a8f96f9f072a0b0a98";
 const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
 
 class App extends React.Component {
+    performSearch(event) {
+        const base = "https://google.com/search?q=";
+        if (event.keyCode == 13 || event.which == 13) {
+            let query = document.getElementById("searchBar").value;
+            let target = base;
+            query.split(" ").forEach((word, index, array) => {
+                if (array.length - 1 === index) {
+                    target += word;
+                } else {
+                    target += `${word}%20`;
+                }
+            });
+
+            window.open(target, "_self");
+        }
+    }
+
     getImages() {
-        const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
         fetch(endpoint, {
             method: "GET",
             mode: "cors",
@@ -32,33 +48,33 @@ class App extends React.Component {
 
     setImage(json) {
         let images = "";
-        console.log(json)
+        console.log(json);
         if (!json.length) {
-            console.log("No response for images")
+            console.log("No response for images");
             return;
         }
 
         for (let i = 0; i < json.length; i++) {
-            let currImage = json[i]
-            images += currImage["image"] + " "
+            let currImage = json[i];
+            images += currImage["image"] + " ";
         }
-        let imageUrls = images.trim().split(" ")
+        let imageUrls = images.trim().split(" ");
 
-        console.log(imageUrls)
+        console.log(imageUrls);
         const randomIndex = Math.floor(Math.random() * imageUrls.length);
         const chosenUrl = imageUrls[randomIndex].includes("https")
             ? imageUrls[randomIndex]
             : imageUrls[randomIndex].replace("http", "https");
         console.log(chosenUrl);
-        this.setState({imgurl: chosenUrl})
+        this.setState({ imgurl: chosenUrl });
     }
 
     constructor(props) {
         super(props);
         this.state = { imgurl: "" };
-        this.getImages = this.getImages.bind(this)
-        this.setImage = this.setImage.bind(this)
-        setTimeout(this.getImages, 10)
+        this.getImages = this.getImages.bind(this);
+        this.setImage = this.setImage.bind(this);
+        setTimeout(this.getImages, 10);
     }
 
     render() {
@@ -76,7 +92,7 @@ class App extends React.Component {
                         id="searchBar"
                         align="center"
                         placeholder="Search..."
-                        onkeypress="performSearch(event)"
+                        onKeyPress={this.performSearch}
                     />
                 </div>
                 <br />
