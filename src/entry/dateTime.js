@@ -27,7 +27,6 @@ export class DateComp extends React.Component {
         }
 
         let statement = "hmm";
-        console.log(hours);
         if (hours >= 0 && hours < 12) {
             statement = "Good Morning";
         } else if (hours >= 12 && hours < 17) {
@@ -51,7 +50,6 @@ export class DateComp extends React.Component {
             suffix = "A.M";
         }
         let fullTime = `${hours}:${minutes} ${suffix}`;
-        console.log(fullTime);
         this.setState({time: fullTime, greeting: statement})
     }
 

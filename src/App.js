@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import { DateComp } from "./entry/dateTime";
+import { QuoteComp } from "./entry/greetQuote"
 
 const apiKey = "5e7f67a8f96f9f072a0b0a98";
 const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
@@ -8,7 +9,7 @@ const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
 class App extends React.Component {
     performSearch(event) {
         const base = "https://google.com/search?q=";
-        if (event.keyCode == 13 || event.which == 13) {
+        if (event.keyCode === 13 || event.which === 13) {
             let query = document.getElementById("searchBar").value;
             let target = base;
             query.split(" ").forEach((word, index, array) => {
@@ -100,14 +101,7 @@ class App extends React.Component {
                 <br />
                 <br />
                 <br />
-                <div id="quoteStuff" align="center">
-                    <h3 id="quote" align="center" className="mainPage">
-                        Hello World
-                    </h3>
-                    <h4 id="author" align="center" className="mainPage">
-                        Pretty Epic
-                    </h4>
-                </div>
+                <QuoteComp/>
                 <br />
                 <br />
                 <br />
