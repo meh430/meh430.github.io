@@ -1,0 +1,41 @@
+.backButton {
+    margin-top: 10px;
+    margin-left: 10px;
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background-color: #ffffff;
+    -webkit-border-top-left-radius: 11px;
+    -moz-border-radius-topleft: 11px;
+    border-top-left-radius: 11px;
+    -webkit-border-top-right-radius: 11px;
+    -moz-border-radius-topright: 11px;
+    border-top-right-radius: 11px;
+    -webkit-border-bottom-right-radius: 11px;
+    -moz-border-radius-bottomright: 11px;
+    border-bottom-right-radius: 11px;
+    -webkit-border-bottom-left-radius: 11px;
+    -moz-border-radius-bottomleft: 11px;
+    border-bottom-left-radius: 11px;
+    text-indent: 0;
+    border: 0.995454px solid #bfbdbf;
+    display: block;
+    color: #666666;
+    font-family: 'Open Sans';
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+.backButton:hover {
+    background-color: #f6f6f6;
+}
+.backButton:active {
+    position: relative;
+    top: 1px;
+}
