@@ -36,7 +36,7 @@
 }
 
 #author {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 #date {
@@ -50,6 +50,15 @@
 #state {
     font-size: 45px;
 }
+
+hr.quoteRule {
+    margin: 0;
+    background-color: white;
+    width: 5%;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
 
 .searchDiv {
     text-align: center;

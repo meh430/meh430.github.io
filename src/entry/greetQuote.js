@@ -47,8 +47,9 @@ export class QuoteComp extends React.Component {
                 <h3 id="quote" align="center" className="mainPage">
                     "{this.state.quote}"
                 </h3>
+                <hr className="quoteRule"/>
                 <h4 id="author" align="center" className="mainPage">
-                    "{this.state.author}"
+                    <strong>{this.state.author}</strong>
                 </h4>
             </div>
         );
