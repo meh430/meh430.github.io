@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { DateComp } from "./dateTime";
 import { QuoteComp } from "./greetQuote";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const apiKey = "5e7f67a8f96f9f072a0b0a98";
 const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
@@ -32,20 +32,20 @@ export class Home extends React.Component {
             cache: "no-cache",
             headers: {
                 "Content-Type": "application/json",
-                apikey: apiKey
-            }
+                apikey: apiKey,
+            },
         })
             .then(
-                response => {
+                (response) => {
                     if (response.ok) {
                         return response.json();
                     }
 
                     throw new Error("Failed to get image");
                 },
-                netError => console.log(netError.message)
+                (netError) => console.log(netError.message)
             )
-            .then(jsonResponse => setTimeout(() => this.setImage(jsonResponse), 3000));
+            .then((jsonResponse) => setTimeout(() => this.setImage(jsonResponse), 1));
     }
 
     setImage(json) {
@@ -107,7 +107,7 @@ export class Home extends React.Component {
                 <br />
                 <br />
                 <center>
-                    <Link to="/about" className="myButton" align="center">
+                    <Link to="/about" className="myButton" align="center" style={{ textDecoration: "none" }}>
                         about
                     </Link>
                 </center>
