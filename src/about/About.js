@@ -2,43 +2,109 @@ import "./About.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "./ProjectCard";
+import { CardDeck, Card } from "react-bootstrap";
 
-//title, subtitle, desc, link, image links?
-const projectFactory = (title, subtitle, desc) => {
+const apiKey = "5e7f67a8f96f9f072a0b0a98";
+const endpoint = "https://reddtwalls-8176.restdb.io/rest/projects";
+
+const projectFactory = (title, sub, desc, inf, feat, imgs) => {
     return {
         title: title,
-        subtitle: subtitle,
-        desc: desc,
+        subtitle: sub,
+        description: desc,
+        info: inf,
+        features: feat,
+        images: imgs,
     };
-};
-const projectArr = [
-    projectFactory("Project 1", "this is a project", "this does stuff"),
-    projectFactory("Project 2", "this is a project", "this does stuff"),
-    projectFactory("Project 3", "this is a project", "this does stuff"),
-    projectFactory("Project 4", "this is a project", "this does stuff"),
-    projectFactory("Project 5", "this is a project", "this does stuff"),
-    projectFactory("Project 6", "this is a project", "this does stuff"),
-    projectFactory("Project 7", "this is a project", "this does stuff"),
-    projectFactory("Project 8", "this is a project", "this does stuff"),
-    projectFactory("Project 9", "this is a project", "this does stuff"),
-    projectFactory("Project 10", "this is a project", "this does stuff"),
-];
-
-const getAsList = () => {
-    let listItems = [];
-    for (let i = 0; i < projectArr.length; i++) {
-        listItems.push(
-            <li key={`project_${i}`}>
-                <ProjectCard title={projectArr[i].title} subtitle={projectArr[i].subtitle} desc={projectArr[i].desc} />
-            </li>
-        );
-    }
-    return listItems;
 };
 
 export class About extends React.Component {
+    getProjects() {
+        fetch(endpoint, {
+            method: "GET",
+            mode: "cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+                apikey: apiKey,
+            },
+        })
+            .then(
+                (response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+
+                    throw new Error("Failed to get projects");
+                },
+                (netError) => console.log(netError.message)
+            )
+            .then((jsonResponse) => setTimeout(() => this.parseProjects(jsonResponse), 1));
+    }
+
+    parseProjects(json) {
+        console.log(json);
+        if (!json.length) {
+            console.log("No response for projects");
+            return;
+        }
+        let pList = [];
+        //title, sub, desc, inf, feat, imgs
+        for (let i = 0; i < json.length; i++) {
+            pList.push(
+                projectFactory(
+                    json[i].title,
+                    json[i].subtitle,
+                    json[i].description,
+                    json[i].info,
+                    json[i].features,
+                    json[i].images
+                )
+            );
+        }
+
+        this.setState({ projectList: pList });
+    }
+
+    getAsList() {
+        let listItems = [];
+        let projectArr = this.state.projectList;
+        if (projectArr.length == 0) {
+            return (
+                <Card style={{ borderRadius: "10px" }}>
+                    <Card.Body>
+                        <Card.Title>Please Wait...</Card.Title>
+                    </Card.Body>
+                </Card>
+            );
+        }
+        //<li key={`project_${i}`}>
+
+        for (let i = 0; i < projectArr.length; i++) {
+            listItems.push(
+                <ProjectCard
+                    title={projectArr[i].title}
+                    subtitle={projectArr[i].subtitle}
+                    description={projectArr[i].description}
+                    info={projectArr[i].info}
+                    features={projectArr[i].features}
+                    images={projectArr[i].images}
+                />
+            );
+        }
+        return listItems;
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = { projectList: [] };
+        this.getProjects = this.getProjects.bind(this);
+        this.parseProjects = this.parseProjects.bind(this);
+        this.getAsList = this.getAsList.bind(this);
+        setTimeout(this.getProjects, 1);
+    }
+
     render() {
-        console.log("got here");
         return (
             <div className="aboutPage">
                 <Link to="/" className="backButton" align="center" style={{ textDecoration: "none" }}>
@@ -55,7 +121,9 @@ export class About extends React.Component {
                 </header>
 
                 <main>
-                    <ul align="center">{getAsList()}</ul>
+                    <CardDeck align="center" className="cardList" style={{ marginLeft: "1%", marginRight: "1%" }}>
+                        {this.getAsList()}
+                    </CardDeck>
                 </main>
             </div>
         );

@@ -41,6 +41,7 @@
 }
 
 .aboutPage {
+    width: 100%;
     height: 100%;
     text-align: center;
 }
@@ -76,16 +77,12 @@ main {
     width: 100%;
     align-items: center;
     text-align: center;
+    justify-content: center;
+    display: block;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    align-items: center;
-    justify-content: center;
+.cardList {
     text-align: center;
-    display: block;
 }
 
 li {
@@ -110,4 +107,15 @@ li {
     left: auto;
     bottom: auto;
     right: auto;
+}
+
+#nextButton {
+    vertical-align: center;
+    text-align: center;
+    width: 110px;
+    font-size: 12px;
+}
+
+#nextButton:focus {
+    outline: 0;
 }

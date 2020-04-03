@@ -106,6 +106,10 @@ export class Home extends React.Component {
                 <br />
                 <br />
                 <br />
+                <br />
+                <br />
+                 <br />
+                <br />
                 <center>
                     <Link to="/about" className="myButton" align="center" style={{ textDecoration: "none" }}>
                         about
