@@ -20,6 +20,7 @@
 }
 
 .mainPage {
+    margin: 10px;
     font-family: "Open Sans";
     text-shadow: 1px 1px 0px black;
     color: white;
@@ -31,23 +32,23 @@
 }
 
 #quote {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 #author {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 #date {
-    font-size: 45px;
+    font-size: 60px;
 }
 
 #time {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 #state {
-    font-size: 30px;
+    font-size: 45px;
 }
 
 .searchDiv {

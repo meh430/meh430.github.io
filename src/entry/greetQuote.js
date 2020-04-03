@@ -45,10 +45,10 @@ export class QuoteComp extends React.Component {
         return (
             <div id="quoteStuff" align="center">
                 <h3 id="quote" align="center" className="mainPage">
-                    {this.state.quote}
+                    "{this.state.quote}"
                 </h3>
                 <h4 id="author" align="center" className="mainPage">
-                    {this.state.author}
+                    "{this.state.author}"
                 </h4>
             </div>
         );
