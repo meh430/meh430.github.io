@@ -12,12 +12,12 @@ export class ProjectInfo extends React.Component {
     }
 
     nextImage() {
-        if (this.props.info.images.length == 1) {
+        if (this.props.info.images.length === 1) {
             return
         }
 
         let currIndex = this.state.index
-        if (currIndex + 1 == this.props.info.images.length) {
+        if (currIndex + 1 === this.props.info.images.length) {
             currIndex = 0
         } else {
             currIndex++
@@ -45,7 +45,7 @@ export class ProjectInfo extends React.Component {
                         src={this.props.info.images[this.state.index]}/>
                     <Modal.Description>
                         <Header>Project Overview</Header>
-                        <p>{this.props.info.description}</p>
+                        <p>{this.props.info.info}</p>
                         <h2>Features</h2>
                         <ul>{this.getAsList()}</ul>
                         <button className="backButton" id="nextButton" onClick={this.nextImage}>Next Image</button>

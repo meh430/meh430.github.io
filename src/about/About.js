@@ -69,27 +69,23 @@ export class About extends React.Component {
     getAsList() {
         let listItems = [];
         let projectArr = this.state.projectList;
-        if (projectArr.length == 0) {
-            return (
-                <Card style={{ borderRadius: "10px" }}>
-                    <Card.Body>
-                        <Card.Title>Please Wait...</Card.Title>
-                    </Card.Body>
-                </Card>
-            );
+        if (projectArr.length === 0) {
+            return <li><h3>Please Wait..</h3></li>;
         }
         //<li key={`project_${i}`}>
 
         for (let i = 0; i < projectArr.length; i++) {
             listItems.push(
-                <ProjectCard
-                    title={projectArr[i].title}
-                    subtitle={projectArr[i].subtitle}
-                    description={projectArr[i].description}
-                    info={projectArr[i].info}
-                    features={projectArr[i].features}
-                    images={projectArr[i].images}
-                />
+                <li key={`project_${i}`}>
+                    <ProjectCard
+                        title={projectArr[i].title}
+                        subtitle={projectArr[i].subtitle}
+                        description={projectArr[i].description}
+                        info={projectArr[i].info}
+                        features={projectArr[i].features}
+                        images={projectArr[i].images}
+                    />
+                </li>
             );
         }
         return listItems;
@@ -121,9 +117,9 @@ export class About extends React.Component {
                 </header>
 
                 <main>
-                    <CardDeck align="center" className="cardList" style={{ marginLeft: "1%", marginRight: "1%" }}>
-                        {this.getAsList()}
-                    </CardDeck>
+                    <center>
+                        <ul>{this.getAsList()}</ul>
+                    </center>
                 </main>
             </div>
         );
