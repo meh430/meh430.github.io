@@ -46,10 +46,11 @@ export class ProjectInfo extends React.Component {
                         <Header>Project Overview</Header>
                         <p style={{textAlign: "center"}}>{this.props.info.info}</p>
                         <h2>Features</h2>
-                        <center>
-                            <ul style={{ textAlign: "center", alignItems: "center" }}>{this.getAsList()}</ul>
-                            <button className="backButton" id="nextButton" onClick={this.nextImage}>Next Image</button>
-                        </center>
+                        <ul style={{ textAlign: "center", alignItems: "center", marginLeft: "auto", marginRight: "auto" }}>
+                            {this.getAsList()}</ul>
+                        <button className="backButton" id="nextButton" onClick={this.nextImage}
+                            style={{ marginLeft: "auto", marginRight: "auto" }}>
+                            Next Image</button>
                     </Modal.Description>
                 </Modal.Content>
             </Modal>
