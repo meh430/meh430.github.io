@@ -40,15 +40,16 @@ export class ProjectInfo extends React.Component {
                 <Modal.Content image>
                     <Image
                         rounded
-                        wrapped
-                        size="big"
+                        size="large"
                         src={this.props.info.images[this.state.index]}/>
                     <Modal.Description>
                         <Header>Project Overview</Header>
-                        <p>{this.props.info.info}</p>
+                        <p style={{textAlign: "center"}}>{this.props.info.info}</p>
                         <h2>Features</h2>
-                        <ul>{this.getAsList()}</ul>
-                        <button className="backButton" id="nextButton" onClick={this.nextImage}>Next Image</button>
+                        <center>
+                            <ul style={{ textAlign: "center", alignItems: "center" }}>{this.getAsList()}</ul>
+                            <button className="backButton" id="nextButton" onClick={this.nextImage}>Next Image</button>
+                        </center>
                     </Modal.Description>
                 </Modal.Content>
             </Modal>

@@ -111,6 +111,7 @@ li {
 }
 
 #nextButton {
+    margin: 20px;
     vertical-align: center;
     text-align: center;
     width: 110px;
