@@ -10,9 +10,9 @@ export class Footer extends React.Component {
         return (
             <footer style={footStyle}>
                 <hr style={{width: "97%", border: "1px solid lightgray"}}/>
-                <a class="fab fa-github" href="https://github.com/meh430" target="_blank"
+                <a className="fab fa-github" href="https://github.com/meh430" target="_blank"
                     style={{ float: "left", fontSize: "30px", color: "black", margin: "10px" }}></a>
-                <a class="fas fa-envelope" href="mailto: mehulpillai30@gmail"
+                <a className="fas fa-envelope" href="mailto: mehulpillai30@gmail"
                     style={{ float: "left", fontSize: "30px", color: "black", margin: "10px" }}></a>
                 
                 <h5 style={{ float: "right", margin:"10px", verticalAlign:"center"}}>Mehul Pillai 2020</h5>

@@ -1,10 +1,5 @@
 import React from 'react'
-import { CardDeck } from 'react-bootstrap'
 import { Card } from 'react-bootstrap'
-const deck = {
-    margin:"1%"
-}
-
 const header = {
     textAlign: "center",
     margin: "2%",
@@ -12,75 +7,34 @@ const header = {
 }
 
 const card = {
-    borderRadius: "10px", borderColor: "#bfbdbf"
+    borderRadius: "10px", borderColor: "#bfbdbf", width:"18em"
 }
 
 const fsize = {
     fontSize: "18px"
 }
+
+const skills = ["Java", "JavaScript", "Kotlin", "C++", "Python", "Dart", "Android Jetpack", "ReactJS", "Bootstrap", "Flutter"]
+
+const getSkillCards = () => {
+    let cardList = []
+    for (let i = 0; i < skills.length; i++) {
+        cardList.push(<li key={`skill_${i}`}><Card style={card}><Card.Body style={fsize}>{skills[i]}</Card.Body></Card></li>)
+    }
+
+    return cardList
+}
+
 export class Skills extends React.Component {
     render() {
         return (
-            <div alight="center" style={{margin: "3%"}}>
+            <div align="center" style={{ margin: "3%" }}>
                 <hr style={{width:"4%"}}/>
                 <h1 style={header}>Languages and Frameworks</h1>
-
-                <CardDeck style={deck}>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Java
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            JavaScript
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Kotlin
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            C++
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Python
-                        </Card.Body>
-                    </Card>
-                </CardDeck>
-
-                
-                <CardDeck style={deck}>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Dart
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Android Jetpack
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            ReactJS
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Bootstrap
-                        </Card.Body>
-                    </Card>
-                    <Card style={card}>
-                        <Card.Body style={fsize}>
-                            Flutter
-                        </Card.Body>
-                    </Card>
-                </CardDeck>
+                <br />
+                <ul style={{width: "90%"}}>
+                    {getSkillCards()}
+                </ul>
             </div>
         )
     }
