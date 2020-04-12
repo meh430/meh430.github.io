@@ -2,6 +2,8 @@ import "./About.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "./ProjectCard";
+import { Footer } from "./Footer"
+import {Skills} from "./Skills"
 const apiKey = "5e7f67a8f96f9f072a0b0a98";
 const endpoint = "https://reddtwalls-8176.restdb.io/rest/projects";
 
@@ -119,6 +121,8 @@ export class About extends React.Component {
                         <ul>{this.getAsList()}</ul>
                     </center>
                 </main>
+                <Skills/>
+                <Footer/>
             </div>
         );
     }
