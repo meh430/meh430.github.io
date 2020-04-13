@@ -5,7 +5,7 @@ import "./About.css";
 export class ProjectCard extends React.Component {
     render() {
         return (
-            <Card style={{ borderRadius: "10px", borderColor: "#bfbdbf", width:"18em"}}>
+            <Card style={{ borderRadius: "10px", borderColor: "#bfbdbf", width: "18em" }}>
                 <Card.Body>
                     <Card.Title>{this.props.title}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{this.props.subtitle}</Card.Subtitle>

@@ -2,10 +2,9 @@ import "./About.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { ProjectCard } from "./ProjectCard";
-import { Footer } from "./Footer"
-import {Skills} from "./Skills"
-const apiKey = "5e7f67a8f96f9f072a0b0a98";
-const endpoint = "https://reddtwalls-8176.restdb.io/rest/projects";
+import { Footer } from "./Footer";
+import { Skills } from "./Skills";
+import { apiKey, projectsEndpoint } from "../Consts";
 
 const projectFactory = (title, sub, desc, inf, feat, imgs) => {
     return {
@@ -18,10 +17,9 @@ const projectFactory = (title, sub, desc, inf, feat, imgs) => {
     };
 };
 
-//TODO: add footer
 export class About extends React.Component {
     getProjects() {
-        fetch(endpoint, {
+        fetch(projectsEndpoint, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -71,7 +69,11 @@ export class About extends React.Component {
         let listItems = [];
         let projectArr = this.state.projectList;
         if (projectArr.length === 0) {
-            return <li><h3>Please Wait..</h3></li>;
+            return (
+                <li>
+                    <h3>Please Wait..</h3>
+                </li>
+            );
         }
 
         for (let i = 0; i < projectArr.length; i++) {
@@ -97,6 +99,7 @@ export class About extends React.Component {
         this.getProjects = this.getProjects.bind(this);
         this.parseProjects = this.parseProjects.bind(this);
         this.getAsList = this.getAsList.bind(this);
+        
         setTimeout(this.getProjects, 1);
     }
 
@@ -121,8 +124,8 @@ export class About extends React.Component {
                         <ul>{this.getAsList()}</ul>
                     </center>
                 </main>
-                <Skills/>
-                <Footer/>
+                <Skills />
+                <Footer />
             </div>
         );
     }

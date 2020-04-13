@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const getOrdinal = n => n + (n > 0 ? ["th", "st", "nd", "rd"][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : "");
+const getOrdinal = (n) => n + (n > 0 ? ["th", "st", "nd", "rd"][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10] : "");
 
 export class DateComp extends React.Component {
     getDate() {
@@ -50,18 +50,18 @@ export class DateComp extends React.Component {
             suffix = "A.M";
         }
         let fullTime = `${hours}:${minutes} ${suffix}`;
-        this.setState({time: fullTime, greeting: statement})
+        this.setState({ time: fullTime, greeting: statement });
     }
 
     constructor(props) {
         super(props);
-        this.state = { date: "date", time: "time", greeting: "greeting" }
-        this.getDate = this.getDate.bind(this)
-        this.getTime = this.getTime.bind(this)
-        this.getDate()
-        setInterval(this.getTime, 2000)
-        setTimeout(this.getDate, 1000)
-        setInterval(this.getDate, 18000)
+        this.state = { date: "date", time: "time", greeting: "greeting" };
+        this.getDate = this.getDate.bind(this);
+        this.getTime = this.getTime.bind(this);
+        this.getDate();
+        setInterval(this.getTime, 2000);
+        setTimeout(this.getDate, 1000);
+        setInterval(this.getDate, 18000);
     }
 
     render() {

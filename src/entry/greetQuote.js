@@ -1,20 +1,19 @@
 import React from "react";
 import "../App.css";
-
+import { quoteEndpoint } from "../Consts";
 export class QuoteComp extends React.Component {
     getQuote() {
-        const endpoint = "https://quotes.rest/qod";
-        fetch(endpoint)
+        fetch(quoteEndpoint)
             .then(
-                netResp => {
+                (netResp) => {
                     if (netResp.ok) {
                         return netResp.json();
                     }
                     throw new Error("Failed to get quote");
                 },
-                error => console.log(error.message)
+                (error) => console.log(error.message)
             )
-            .then(jsonResp => {
+            .then((jsonResp) => {
                 console.log(jsonResp);
                 this.displayQuote(jsonResp);
             });
@@ -34,7 +33,7 @@ export class QuoteComp extends React.Component {
         super(props);
         this.state = {
             quote: "Quote",
-            author: "Author"
+            author: "Author",
         };
         this.getQuote = this.getQuote.bind(this);
         this.displayQuote = this.displayQuote.bind(this);
@@ -47,7 +46,7 @@ export class QuoteComp extends React.Component {
                 <h3 id="quote" align="center" className="mainPage">
                     "{this.state.quote}"
                 </h3>
-                <hr className="quoteRule"/>
+                <hr className="quoteRule" />
                 <h4 id="author" align="center" className="mainPage">
                     <strong>{this.state.author}</strong>
                 </h4>

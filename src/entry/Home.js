@@ -3,9 +3,7 @@ import "../App.css";
 import { DateComp } from "./dateTime";
 import { QuoteComp } from "./greetQuote";
 import { Link } from "react-router-dom";
-
-const apiKey = "5e7f67a8f96f9f072a0b0a98";
-const endpoint = "https://reddtwalls-8176.restdb.io/rest/images";
+import { apiKey, imageEndpoint } from "../Consts";
 
 export class Home extends React.Component {
     performSearch(event) {
@@ -26,7 +24,7 @@ export class Home extends React.Component {
     }
 
     getImages() {
-        fetch(endpoint, {
+        fetch(imageEndpoint, {
             method: "GET",
             mode: "cors",
             cache: "no-cache",
@@ -68,12 +66,16 @@ export class Home extends React.Component {
             ? imageUrls[randomIndex]
             : imageUrls[randomIndex].replace("http", "https");
         console.log(chosenUrl);
-        this.setState({ imgurl: chosenUrl });
+        this.setState({
+            imgurl: chosenUrl,
+        });
     }
 
     constructor(props) {
         super(props);
-        this.state = { imgurl: "" };
+        this.state = {
+            imgurl: "",
+        };
         this.getImages = this.getImages.bind(this);
         this.setImage = this.setImage.bind(this);
         setTimeout(this.getImages, 10);
@@ -81,7 +83,12 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <div className="App" style={{ backgroundImage: `url(${this.state.imgurl})` }}>
+            <div
+                className="App"
+                style={{
+                    backgroundImage: `url(${this.state.imgurl})`,
+                }}
+            >
                 <br />
                 <DateComp />
                 <br />
@@ -95,8 +102,9 @@ export class Home extends React.Component {
                         align="center"
                         placeholder="Search..."
                         onKeyPress={this.performSearch}
-                    />
-                </div>
+                    />{" "}
+                    
+                </div>{" "}
                 <br />
                 <br />
                 <br />
@@ -108,13 +116,20 @@ export class Home extends React.Component {
                 <br />
                 <br />
                 <br />
-                 <br />
+                <br />
                 <br />
                 <center>
-                    <Link to="/about" className="myButton" align="center" style={{ textDecoration: "none" }}>
-                        about
-                    </Link>
-                </center>
+                    <Link
+                        to="/about"
+                        className="myButton"
+                        align="center"
+                        style={{
+                            textDecoration: "none",
+                        }}
+                    >
+                        about{" "}
+                    </Link>{" "}
+                </center>{" "}
             </div>
         );
     }
