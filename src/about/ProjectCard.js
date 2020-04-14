@@ -16,6 +16,7 @@ export class ProjectCard extends React.Component {
                             id="repoLink"
                             className="backButton"
                             href={this.props.features[this.props.features.length - 1]}
+                            rel="noopener noreferrer"
                             target="_blank"
                         ></a>
                     </center>
