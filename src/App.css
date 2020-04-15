@@ -53,6 +53,8 @@
 
 hr.quoteRule {
     margin: 0;
+    margin-top: 1.5%;
+    margin-bottom: 1%;
     background-color: white;
     width: 5%;
     border: 2px solid white;

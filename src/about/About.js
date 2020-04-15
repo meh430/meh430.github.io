@@ -5,6 +5,7 @@ import { ProjectCard } from "./ProjectCard";
 import { Footer } from "./Footer";
 import { Skills } from "./Skills";
 import { apiKey, projectsEndpoint } from "../Consts";
+import { CardDeck } from "react-bootstrap";
 
 const projectFactory = (title, sub, desc, inf, feat, imgs) => {
     return {
@@ -66,6 +67,7 @@ export class About extends React.Component {
     }
 
     getAsList() {
+        let cardList = [];
         let listItems = [];
         let projectArr = this.state.projectList;
         if (projectArr.length === 0) {
@@ -77,9 +79,8 @@ export class About extends React.Component {
         }
 
         for (let i = 0; i < projectArr.length; i++) {
-            listItems.push(
-                <li key={`project_${i}`}>
-                    <ProjectCard
+            cardList.push(
+                <ProjectCard key={`card_${i}`}
                         title={projectArr[i].title}
                         subtitle={projectArr[i].subtitle}
                         description={projectArr[i].description}
@@ -87,8 +88,29 @@ export class About extends React.Component {
                         features={projectArr[i].features}
                         images={projectArr[i].images}
                     />
-                </li>
             );
+
+            if ((i+1) % 3 === 0) {
+                listItems.push(
+                    <li key={`deck_${i}`}>
+                        <CardDeck>
+                            {cardList}
+                        </CardDeck>
+                    </li>
+                )
+
+                cardList = []
+            }
+        }
+
+        if (cardList.length !== 0) {
+            listItems.push(
+                <li key={'last deck'}>
+                    <CardDeck>
+                        {cardList}
+                    </CardDeck>
+                </li>
+            )
         }
         return listItems;
     }
