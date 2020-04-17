@@ -24,6 +24,7 @@ export class ProjectInfo extends React.Component {
         }
 
         this.setState({ index: currIndex });
+        console.log(this.props.info.images[this.state.index])
     }
 
     constructor(props) {
