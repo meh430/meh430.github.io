@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { DateComp } from "./dateTime";
 import { QuoteComp } from "./greetQuote";
+import { Weather } from "./weather";
 import { Link } from "react-router-dom";
 import { apiKey, imageEndpoint } from "../Consts";
 
@@ -21,29 +22,6 @@ export class Home extends React.Component {
 
             window.open(target, "_self");
         }
-    }
-
-    getImages() {
-        fetch(imageEndpoint, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-cache",
-            headers: {
-                "Content-Type": "application/json",
-                apikey: apiKey,
-            },
-        })
-            .then(
-                (response) => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-
-                    throw new Error("Failed to get image");
-                },
-                (netError) => console.log(netError.message)
-            )
-            .then((jsonResponse) => setTimeout(() => this.setImage(jsonResponse), 1));
     }
 
     setImage(json) {
@@ -71,14 +49,30 @@ export class Home extends React.Component {
         });
     }
 
+    async componentDidMount() {
+        try {
+            const res = await fetch(imageEndpoint, {
+                method: "GET",
+                mode: "cors",
+                cache: "no-cache",
+                headers: {
+                    "Content-Type": "application/json",
+                    apikey: apiKey,
+                },
+            });
+
+            this.setImage(await res.json());
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     constructor(props) {
         super(props);
         this.state = {
             imgurl: "",
         };
-        this.getImages = this.getImages.bind(this);
         this.setImage = this.setImage.bind(this);
-        setTimeout(this.getImages, 10);
     }
 
     render() {
@@ -92,8 +86,7 @@ export class Home extends React.Component {
                 <br />
                 <DateComp />
                 <br />
-                <br />
-                <br />
+                <Weather/>
                 <br />
                 <div className="searchDiv">
                     <input
@@ -103,18 +96,12 @@ export class Home extends React.Component {
                         placeholder="Search..."
                         onKeyPress={this.performSearch}
                     />{" "}
-                    
                 </div>{" "}
                 <br />
                 <br />
                 <br />
                 <br />
                 <QuoteComp />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
                 <br />
                 <br />
                 <br />

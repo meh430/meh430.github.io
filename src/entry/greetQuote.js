@@ -2,23 +2,6 @@ import React from "react";
 import "../App.css";
 import { quoteEndpoint } from "../Consts";
 export class QuoteComp extends React.Component {
-    getQuote() {
-        fetch(quoteEndpoint)
-            .then(
-                (netResp) => {
-                    if (netResp.ok) {
-                        return netResp.json();
-                    }
-                    throw new Error("Failed to get quote");
-                },
-                (error) => console.log(error.message)
-            )
-            .then((jsonResp) => {
-                console.log(jsonResp);
-                this.displayQuote(jsonResp);
-            });
-    }
-
     displayQuote(response) {
         let quoteObj = response;
         quoteObj = quoteObj["contents"];
@@ -29,15 +12,19 @@ export class QuoteComp extends React.Component {
         }
         this.setState({ quote: quoteArr[0].quote, author: quoteArr[0].author });
     }
+
+    async componentDidMount() {
+        const res = await fetch(quoteEndpoint);
+        this.displayQuote(await res.json());
+    }
+
     constructor(props) {
         super(props);
         this.state = {
             quote: "Quote",
             author: "Author",
         };
-        this.getQuote = this.getQuote.bind(this);
         this.displayQuote = this.displayQuote.bind(this);
-        setTimeout(this.getQuote, 10);
     }
 
     render() {

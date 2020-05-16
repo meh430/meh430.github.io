@@ -53,15 +53,18 @@ export class DateComp extends React.Component {
         this.setState({ time: fullTime, greeting: statement });
     }
 
+    async componentDidMount() {
+        this.getDate();
+        this.getTime();
+        setInterval(this.getTime, 2000);
+        setInterval(this.getDate, 18000);
+    }
+
     constructor(props) {
         super(props);
         this.state = { date: "date", time: "time", greeting: "greeting" };
         this.getDate = this.getDate.bind(this);
         this.getTime = this.getTime.bind(this);
-        this.getDate();
-        setInterval(this.getTime, 2000);
-        setTimeout(this.getDate, 1000);
-        setInterval(this.getDate, 18000);
     }
 
     render() {
@@ -76,6 +79,7 @@ export class DateComp extends React.Component {
                 <h3 id="state" align="center" className="mainPage">
                     {this.state.greeting}
                 </h3>
+
             </div>
         );
     }
