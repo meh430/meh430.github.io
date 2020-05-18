@@ -119,14 +119,21 @@ export class Weather extends React.Component {
         }
         const publicIp = (await ipRes.json())["ip"];
         console.log(publicIp);
-        const locRes = await fetch(locEndpoint + publicIp);
+        const locRes = await fetch(locEndpoint + publicIp, {
+            method: "GET",
+            mode: "no-cors",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
         const locationInfo = await locRes.json();
         console.log(locationInfo);
-        const coords = locationInfo["data"]["geo"]
+        const coords = locationInfo["data"]["geo"];
         const lon = coords["longitude"];
         const lat = coords["latitude"];
-        console.log(weatherEndpoint+"lat="+lat+"&lon="+lon+"&appid="+weatherKey);
-        const weatherRes = await fetch(weatherEndpoint+"lat="+lat+"&lon="+lon+"&appid="+weatherKey)
+        console.log(weatherEndpoint + "lat=" + lat + "&lon=" + lon + "&appid=" + weatherKey);
+        const weatherRes = await fetch(weatherEndpoint + "lat=" + lat + "&lon=" + lon + "&appid=" + weatherKey);
         console.log(weatherRes);
         this.finishLoading(await weatherRes.json());
     }
