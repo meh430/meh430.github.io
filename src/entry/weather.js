@@ -3,18 +3,19 @@ import { weatherKey, locEndpoint, weatherEndpoint, ipEndpoint } from "../Consts"
 const toggled = "#7dc6db";
 //TODO: show city?
 const cardStyle = {
-    backgroundColor: "#ffffff",
     margin: "0 auto",
     borderRadius: "15px",
-    border: "1px solid #D3D3D3",
+    textShadow: "1px 1px 0px black",
+    border: "2px solid #D3D3D3",
     padding: "5px",
     width: "fit-content",
     /* To adjust the height as well */
-
     height: "fit-content",
 };
 
 const descStyle = {
+    textShadow: "1px 1px 0px black",
+    color: "white",
     display: "inline-block",
     fontFamily: "Open Sans",
     margin: "10px",
@@ -22,8 +23,9 @@ const descStyle = {
 };
 
 let toggleStyle = {
+    textShadow: "1px 1px 0px black",
     writable: true,
-    color: "gray",
+    color: "#d4d6d9",
     fontSize: "16px",
     display: "inline-block",
     margin: "5px",
@@ -31,8 +33,9 @@ let toggleStyle = {
 };
 
 const tempStyle = {
+    textShadow: "1px 1px 0px black",
     textAlign: "center",
-    color: "gray",
+    color: "#d4d6d9",
     fontSize: "16px",
     margin: "10px",
     fontFamily: "Open Sans",
