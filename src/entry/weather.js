@@ -1,5 +1,5 @@
 import React from "react";
-import { weatherKey, locEndpoint, weatherEndpoint, ipEndpoint } from "../Consts";
+import { weatherKey, locKey, locEndpoint, weatherEndpoint, ipEndpoint } from "../Consts";
 const toggled = "#7dc6db";
 //TODO: show city?
 const cardStyle = {
@@ -119,14 +119,7 @@ export class Weather extends React.Component {
         }
         const publicIp = (await ipRes.json())["ip"];
         console.log(publicIp);
-        const locRes = await fetch(locEndpoint + publicIp, {
-            method: "GET",
-            mode: "no-cors",
-            cache: "no-cache",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+        const locRes = await fetch(locEndpoint + locKey + "&ip=" + publicIp);
         const locationInfo = await locRes.json();
         console.log(locationInfo);
         const coords = locationInfo["data"]["geo"];
