@@ -90,7 +90,7 @@ export class About extends React.Component {
                     />
             );
 
-            if ((i+1) % 3 === 0) {
+            if ((i + 1) % 4 === 0) {
                 listItems.push(
                     <li key={`deck_${i}`}>
                         <CardDeck>
@@ -103,7 +103,7 @@ export class About extends React.Component {
             }
         }
 
-        if (cardList.length !== 0) {
+        if (cardList.length !== 0) {    
             listItems.push(
                 <li key={'last deck'}>
                     <CardDeck>
@@ -112,6 +112,7 @@ export class About extends React.Component {
                 </li>
             )
         }
+        console.log(listItems);
         return listItems;
     }
 
