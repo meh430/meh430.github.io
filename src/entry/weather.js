@@ -17,7 +17,7 @@ const descStyle = {
     textShadow: "1px 1px 0px black",
     color: "white",
     display: "inline-block",
-    fontFamily: "Open Sans",
+    fontFamily: "'DM Sans', sans-serif",
     margin: "10px",
     fontSize: "22px",
 };

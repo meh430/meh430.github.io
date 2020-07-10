@@ -1,76 +1,108 @@
-.backButton {
-    margin-top: 1%;
-    margin-left: 1%;
-    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
-    box-shadow: inset 0px 1px 0px 0px #ffffff;
-    background-color: #ffffff;
-    -webkit-border-top-left-radius: 11px;
-    -moz-border-radius-topleft: 11px;
-    border-top-left-radius: 11px;
-    -webkit-border-top-right-radius: 11px;
-    -moz-border-radius-topright: 11px;
-    border-top-right-radius: 11px;
-    -webkit-border-bottom-right-radius: 11px;
-    -moz-border-radius-bottomright: 11px;
-    border-bottom-right-radius: 11px;
-    -webkit-border-bottom-left-radius: 11px;
-    -moz-border-radius-bottomleft: 11px;
-    border-bottom-left-radius: 11px;
-    text-indent: 0;
-    border: 0.995454px solid #bfbdbf;
-    display: block;
-    color: #666666;
-    font-family: "Open Sans";
-    font-size: 20px;
-    font-weight: normal;
-    font-style: normal;
-    height: 50px;
-    line-height: 50px;
-    width: 100px;
+/*about*/
+
+.topBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+
+.navBar {
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.navDark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navText {
+    width: 100%;
+    height: 100%;
     text-decoration: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.navText:hover {
+    color:white;
+}
+
+.toggleButton {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 0px !important;
+    background-color: rgb(175, 172, 172);
+}
+
+.darkToggle {
+    border: 0px !important;
+}
+
+.backButton {
     text-align: center;
-    text-shadow: 0px 1px 0px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    padding:6px;
+    background-color:#0066CC;
+    color:white;
+    vertical-align: auto;
+    margin: 15px;
+    transition: all 0.3s ease 0s;
 }
+
 .backButton:hover {
-    background-color: #f6f6f6;
+   width:100px;
+   height:50px;
+   border-radius: 30px;
+   padding:6px;
+   background-color:#0066CC;
+   color:white;
+   transition:all 0.4s ease 0s;
 }
-.backButton:active {
-    position: relative;
-    top: 1px;
+
+.backButton span {
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.backButton:hover span {
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.backButton:hover span:after {
+    font-family: "Open Sans";
+    margin-left: 10px;
+    content: "Back";
+    transition: all 0.3s ease 0s;
 }
 
 .aboutPage {
+    position: absolute;
+    top: 0;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     text-align: center;
 }
 
-header {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    font-family: "Open Sans";
-    display: block;
-    text-align: center;
-}
 
-h1 {
-    font-size: 60px;
-}
-
-h2 {
-    color: lightslategray;
-}
-
-hr {
-    margin-top: 1.6%;
-    background-color: black;
-    width: 20%;
-    border: 3px solid black;
-    border-radius: 15px;
-    margin-bottom: 3%;
+/*projects*/
+.projectPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 main {

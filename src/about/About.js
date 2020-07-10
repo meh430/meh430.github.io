@@ -1,154 +1,84 @@
 import "./About.css";
 import React from "react";
-import { Link } from "react-router-dom";
-import { ProjectCard } from "./ProjectCard";
-import { Footer } from "./Footer";
-import { Skills } from "./Skills";
-import { apiKey, projectsEndpoint } from "../Consts";
-import { CardDeck } from "react-bootstrap";
+import { Link, Switch, Route } from "react-router-dom";
+import { Navbar, Nav, ButtonGroup, ToggleButton } from "react-bootstrap";
+import { Projects } from "./projects";
+import { Education } from "./education";
+import { Interests } from "./interests";
+import { Profile } from "./profile";
 
-const projectFactory = (title, sub, desc, inf, feat, imgs) => {
-    return {
-        title: title,
-        subtitle: sub,
-        description: desc,
-        info: inf,
-        features: feat,
-        images: imgs,
-    };
+const navLink = {
+    borderRadius: "5px",
+    margin: "3px",
 };
 
+const toggle = [
+    { name: "Light", value: "1" },
+    { name: "Dark", value: "2" },
+];
+
 export class About extends React.Component {
-    getProjects() {
-        fetch(projectsEndpoint, {
-            method: "GET",
-            mode: "cors",
-            cache: "no-cache",
-            headers: {
-                "Content-Type": "application/json",
-                apikey: apiKey,
-            },
-        })
-            .then(
-                (response) => {
-                    if (response.ok) {
-                        return response.json();
-                    }
-
-                    throw new Error("Failed to get projects");
-                },
-                (netError) => console.log(netError.message)
-            )
-            .then((jsonResponse) => setTimeout(() => this.parseProjects(jsonResponse), 1));
-    }
-
-    parseProjects(json) {
-        console.log(json);
-        if (!json.length) {
-            console.log("No response for projects");
-            return;
-        }
-        let pList = [];
-        //title, sub, desc, inf, feat, imgs
-        for (let i = 0; i < json.length; i++) {
-            pList.push(
-                projectFactory(
-                    json[i].title,
-                    json[i].subtitle,
-                    json[i].description,
-                    json[i].info,
-                    json[i].features,
-                    json[i].images
-                )
-            );
-        }
-
-        this.setState({ projectList: pList });
-    }
-
-    getAsList() {
-        let cardList = [];
-        let listItems = [];
-        let projectArr = this.state.projectList;
-        if (projectArr.length === 0) {
-            return (
-                <li>
-                    <h3>Please Wait..</h3>
-                </li>
-            );
-        }
-
-        for (let i = 0; i < projectArr.length; i++) {
-            cardList.push(
-                <ProjectCard key={`card_${i}`}
-                        title={projectArr[i].title}
-                        subtitle={projectArr[i].subtitle}
-                        description={projectArr[i].description}
-                        info={projectArr[i].info}
-                        features={projectArr[i].features}
-                        images={projectArr[i].images}
-                    />
-            );
-
-            if ((i + 1) % 4 === 0) {
-                listItems.push(
-                    <li key={`deck_${i}`}>
-                        <CardDeck>
-                            {cardList}
-                        </CardDeck>
-                    </li>
-                )
-
-                cardList = []
-            }
-        }
-
-        if (cardList.length !== 0) {    
-            listItems.push(
-                <li key={'last deck'}>
-                    <CardDeck>
-                        {cardList}
-                    </CardDeck>
-                </li>
-            )
-        }
-        console.log(listItems);
-        return listItems;
-    }
-
     constructor(props) {
         super(props);
-        this.state = { projectList: [] };
-        this.getProjects = this.getProjects.bind(this);
-        this.parseProjects = this.parseProjects.bind(this);
-        this.getAsList = this.getAsList.bind(this);
-        
-        setTimeout(this.getProjects, 1);
+        this.state = {
+            radioValue: "1"
+        };
     }
 
     render() {
         return (
-            <div className="aboutPage">
-                <Link to="/" className="backButton" align="center" style={{ textDecoration: "none" }}>
-                    Back
-                </Link>
-
-                <header align="center">
-                    <h1>
-                        Hello, my name is <strong>Mehul Pillai</strong>...
-                    </h1>
-                    <h2>I am an aspiring computer scientist who loves to build applications and solve problems.</h2>
-                    <h2>Check out some of my projects below</h2>
-                    <hr />
-                </header>
-
-                <main>
-                    <center>
-                        <ul>{this.getAsList()}</ul>
-                    </center>
-                </main>
-                <Skills />
-                <Footer />
+            <div className="aboutPage" style={{ backgroundColor: this.state.radioValue === "2" ? "black" : "white"}}>
+                <div className="topBar">
+                    <Link className="backButton" to="/" style={{ textDecoration: "none" }}>
+                        <i className="fas fa-arrow-left"></i>
+                        <span data-hover="Back"></span>
+                    </Link>
+                    <div className="navDark">
+                        <ButtonGroup toggle className="darkToggle">
+                            {toggle.map((radio, idx) => (
+                                <ToggleButton
+                                    className="toggleButton"
+                                    key={idx}
+                                    type="radio"
+                                    variant="secondary"
+                                    name="radio"
+                                    value={radio.value}
+                                    checked={this.state.radioValue === radio.value}
+                                    onChange={(e) => this.setState({ radioValue: e.currentTarget.value })}
+                                >
+                                    {radio.name}
+                                </ToggleButton>
+                            ))}
+                        </ButtonGroup>
+                        <Navbar bg="dark" expand="lg" className="navBar">
+                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                            <Navbar.Collapse id="basic-navbar-nav">
+                                <Nav variant="pills" className="mr-auto" defaultActiveKey="projects">
+                                    <Nav.Link as={Link} style={navLink} eventKey="projects" to="/about">
+                                        <h3 className="navText">Projects</h3>
+                                    </Nav.Link>
+                                    <Nav.Link as={Link} style={navLink} eventKey="education" to="/about/education">
+                                        <h3 className="navText">Education</h3>
+                                    </Nav.Link>
+                                    <Nav.Link as={Link} style={navLink} eventKey="interests" to="/about/interests">
+                                        <h3 className="navText">Interests</h3>
+                                    </Nav.Link>
+                                    <Nav.Link as={Link} style={navLink} eventKey="profile" to="/about/profile">
+                                        <h3 className="navText">Profile</h3>
+                                    </Nav.Link>
+                                </Nav>
+                            </Navbar.Collapse>
+                        </Navbar>
+                    </div>
+                </div>
+                <div>
+                    <Switch>
+                        <Route path="/about" render={() => <Projects dark={this.state.radioValue === "2"}/>} exact />
+                        <Route path="/about/education" render={() => <Education dark={this.state.radioValue === "2"} />} />
+                        <Route path="/about/interests" render={() => <Interests dark={this.state.radioValue === "2"}/>} />
+                        <Route path="/about/profile" render={() => <Profile dark={this.state.radioValue === "2"}/>} />
+                    </Switch>
+                </div>
             </div>
         );
     }
