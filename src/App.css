@@ -50,7 +50,7 @@
 }
 
 #quote {
-    font-family: 'Noto Sans HK', sans-serif;
+    font-family: "Rubik", sans-serif;
     font-size: 30px;
 }
 
@@ -60,17 +60,17 @@
 
 #date {
     font-size: 60px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 #time {
     font-size: 50px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 #state {
     font-size: 45px;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
 }
 
 hr.quoteRule {
@@ -130,22 +130,22 @@ input[type="search"]:-ms-input-placeholder {
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    padding:6px;
-    background-color:#0066CC;
-    color:white;
+    padding: 6px;
+    background-color: #0066cc;
+    color: white;
     vertical-align: auto;
     margin: 15px;
     transition: all 0.3s ease 0s;
 }
 
 .aboutButton:hover {
-   width:100px;
-   height:50px;
-   border-radius: 30px;
-   padding:6px;
-   background-color:#0066CC;
-   color:white;
-   transition:all 0.3s ease 0s;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: #0066cc;
+    color: white;
+    transition: all 0.3s ease 0s;
 }
 
 .aboutButton span {
@@ -155,11 +155,11 @@ input[type="search"]:-ms-input-placeholder {
 
 .aboutButton:hover span {
     opacity: 1;
-   transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 .aboutButton:hover span:after {
-    font-family: "Open Sans";
+    font-family: "Rubik", sans-serif;
     margin-left: 10px;
     content: "About";
     transition: all 0.3s ease 0s;
@@ -211,35 +211,35 @@ input[type="search"]:-ms-input-placeholder {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 ::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+    width: 0px;
+    height: 0px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #969292;
-  border: 0px none #ffffff;
-  border-radius: 47px;
+    background: #969292;
+    border: 0px none #ffffff;
+    border-radius: 47px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #666666;
+    background: #666666;
 }
 ::-webkit-scrollbar-thumb:active {
-  background: #000000;
+    background: #000000;
 }
 ::-webkit-scrollbar-track {
-  background: #cfc9c9;
-  border: 0px none #ffffff;
-  border-radius: 50px;
+    background: #cfc9c9;
+    border: 0px none #ffffff;
+    border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: #d7d5d5;
+    background: #d7d5d5;
 }
 ::-webkit-scrollbar-track:active {
-  background: #969292;
+    background: #969292;
 }
 ::-webkit-scrollbar-corner {
-  background: transparent;
+    background: transparent;
 }

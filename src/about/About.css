@@ -27,15 +27,15 @@
     color: white;
     font-size: 16px;
     letter-spacing: 1px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "Rubik", sans-serif;
 }
 
 .navText:hover {
-    color:white;
+    color: white;
 }
 
 .toggleButton {
-    font-family: 'DM Sans', sans-serif !important;
+    font-family: "Rubik", sans-serif;
     font-size: 16px;
     border-radius: 10px;
     border: 0px !important;
@@ -54,22 +54,22 @@
     width: 50px;
     height: 50px;
     border-radius: 30px;
-    padding:6px;
-    background-color:#0066CC;
-    color:white;
+    padding: 6px;
+    background-color: #0066cc;
+    color: white;
     vertical-align: auto;
     margin: 15px;
     transition: all 0.3s ease 0s;
 }
 
 .backButton:hover {
-   width:100px;
-   height:50px;
-   border-radius: 30px;
-   padding:6px;
-   background-color:#0066CC;
-   color:white;
-   transition:all 0.4s ease 0s;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 6px;
+    background-color: #0066cc;
+    color: white;
+    transition: all 0.4s ease 0s;
 }
 
 .backButton span {
@@ -83,20 +83,21 @@
 }
 
 .backButton:hover span:after {
-    font-family: "Open Sans";
+    font-family: "Rubik", sans-serif;
     margin-left: 10px;
     content: "Back";
     transition: all 0.3s ease 0s;
 }
 
 .aboutPage {
-    position: absolute;
+    position: fixed;
     top: 0;
-    width: 100%;
-    height: fit-content;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
     text-align: center;
 }
-
 
 /*projects*/
 .projectPage {
@@ -142,14 +143,15 @@ li {
     right: auto;
 }
 
-#nextButton {
-    margin: 20px;
-    vertical-align: center;
-    text-align: center;
-    width: 110px;
-    font-size: 12px;
+.social {
+    margin: 7px;
+    font-size: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease 0s;
 }
 
-#nextButton:focus {
-    outline: 0;
+.social:hover {
+    margin: 0px;
+    font-size: 47px;
+    transition: all 0.2s ease 0s;
 }

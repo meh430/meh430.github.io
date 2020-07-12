@@ -1,10 +1,10 @@
 import React from "react";
 import "../App.css";
-import { DateComp } from "./dateTime";
-import { QuoteComp } from "./greetQuote";
-import { Weather } from "./weather";
+import { DateComp } from "./DateTime";
+import { QuoteComp } from "./GreetQuote";
+import { Weather } from "./Weather";
 import { Link } from "react-router-dom";
-import { data } from "../about/data";
+import { data } from "../about/Data";
 export class Home extends React.Component {
     performSearch(event) {
         const base = "https://google.com/search?q=";
@@ -56,7 +56,12 @@ export class Home extends React.Component {
                     <br />
                     <br />
                     <br />
-                    <Link className="aboutButton" to="/about" style={{ textDecoration: "none" }}>
+                    <Link
+                        className="aboutButton"
+                        to="/about"
+                        style={{ textDecoration: "none" }}
+                        onClick={() => sessionStorage.clear()}
+                    >
                         <i className="fa fa-user"></i>
                         <span data-hover="About"></span>
                     </Link>

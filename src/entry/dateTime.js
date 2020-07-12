@@ -79,7 +79,6 @@ export class DateComp extends React.Component {
                 <h3 id="state" align="center" className="mainPage">
                     {this.state.greeting}
                 </h3>
-
             </div>
         );
     }
