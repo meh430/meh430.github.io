@@ -126,11 +126,6 @@ export const ProjectModal = (props) => {
                     ))}
                 </ul>
             </Modal.Body>
-            <Modal.Footer style={{ backgroundColor: props.info.dark ? "#212121" : "white", border: "none" }}>
-                <Button onClick={props.onHide} style={{ fontFamily: "'Rubik', sans-serif" }}>
-                    Close
-                </Button>
-            </Modal.Footer>
         </Modal>
     );
 };

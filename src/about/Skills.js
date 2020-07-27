@@ -23,10 +23,10 @@ export const Skills = (props) => {
                 Languages and Frameworks
             </h1>
             <br />
-            <ul style={{ width: "90%" }}>
+            <ul style={{ width: "90%", listStyleType: "none", margin: "0px", padding: "0px" }}>
                 {data.skills.map((skill, index) => {
                     return (
-                        <li key={`skill_${index}`}>
+                        <li key={`skill_${index}`} style={{margin:"10px", display: "inline-block"}}>
                             <Card
                                 style={{
                                     display: "flex",

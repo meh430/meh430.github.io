@@ -45,7 +45,7 @@ export const InfoCard = (props) => {
                 ) : (
                     <img
                         src={props.image}
-                        style={{ margin: "10px", borderRadius: "20px", width: "90%", height: "auto" }}
+                        style={{ margin: "10px", borderRadius: "10px", width: "90%", height: "auto" }}
                     />
                 )}
                 <Card.Text
