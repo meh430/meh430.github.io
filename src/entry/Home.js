@@ -28,9 +28,14 @@ export class Home extends React.Component {
             <div className="App">
                 <div
                     className="backgroundImage"
-                    style={{
+                    /*style={{
                         backgroundImage: `url(${
                             data.backgrounds[Math.floor(Math.random() * data.backgrounds.length)]
+                        })`,
+                    }}*/
+                    style={{
+                        backgroundImage: `url(${
+                            data.backgrounds[0]
                         })`,
                     }}
                 ></div>

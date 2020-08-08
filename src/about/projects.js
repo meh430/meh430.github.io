@@ -24,7 +24,6 @@ export const Projects = (props) => {
                                     title={project.title}
                                     tech={project.tech}
                                     brief={project.brief}
-                                    description={project.description}
                                     repo={project.repo}
                                     features={project.features}
                                     images={project.images}

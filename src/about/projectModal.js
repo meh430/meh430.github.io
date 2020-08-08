@@ -50,7 +50,7 @@ export const ProjectModal = (props) => {
                     backgroundColor: props.info.dark ? "#212121" : "white",
                 }}
             >
-                <Image rounded size="medium" src={props.info.images[imageIndex]} />
+                <Image rounded size="large" src={props.info.images[imageIndex]} />
                 {props.info.images.length === 1 ? (
                     <i style={{ display: "none" }} />
                 ) : (
@@ -94,22 +94,12 @@ export const ProjectModal = (props) => {
                         ></i>
                     </div>
                 )}
-                <p
-                    style={{
-                        fontFamily: "'Nunito', sans-serif",
-                        fontSize: "16px",
-                        margin: "10px",
-                        color: props.info.dark ? "white" : "black",
-                    }}
-                >
-                    {props.info.description}
-                </p>
-
+                
                 <h2 style={{ fontFamily: "'Nunito', sans-serif", color: props.info.dark ? "white" : "black" }}>
                     Features
                 </h2>
 
-                <ul style={{ width: "85%" }}>
+                <ul style={{ width: "85%", listStyleType: "none", padding: "0px", margin: "0px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
                     {props.info.features.map((feature, index) => (
                         <li
                             key={`feature_${index}`}
@@ -118,7 +108,9 @@ export const ProjectModal = (props) => {
                                 backgroundColor: "#7B95E9",
                                 color: "white",
                                 padding: "5px 15px 5px 15px",
+                                margin: "10px",
                                 borderRadius: "20px",
+                                width: "fit-content"
                             }}
                         >
                             {feature}
@@ -129,3 +121,14 @@ export const ProjectModal = (props) => {
         </Modal>
     );
 };
+
+/*<p
+                    style={{
+                        fontFamily: "'Nunito', sans-serif",
+                        fontSize: "16px",
+                        margin: "10px",
+                        color: props.info.dark ? "white" : "black",
+                    }}
+                >
+                    {props.info.description}
+                </p>*/
