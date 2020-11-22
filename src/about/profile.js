@@ -19,7 +19,7 @@ export const Profile = (props) => {
             >
                 <Card.Body style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "30px" }}>
                     <Image
-                        src="https://cdn.discordapp.com/attachments/717487791491121162/731273446545424414/unknown.png"
+                        src="https://raw.githubusercontent.com/meh430/meh430.github.io/source/src/about/imgs/prof.png"
                         size="medium"
                         circular
                         style={{ margin: "20px" }}
