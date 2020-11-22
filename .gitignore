@@ -13,7 +13,6 @@
 
 # misc
 /src/Consts.js
-/src/about/imgs
 /src/about/data.js
 .DS_Store
 .env.local
