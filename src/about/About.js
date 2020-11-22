@@ -8,6 +8,8 @@ import { Interests } from "./Interests";
 import { Profile } from "./Profile";
 import { Footer } from "./Footer";
 
+const THEME = "THEME";
+
 const navLink = {
     borderRadius: "5px",
     margin: "3px",
@@ -25,8 +27,8 @@ export class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dark: false,
-            darkSymbol: unfilledMoon,
+            dark: localStorage.getItem(THEME),
+            darkSymbol: localStorage.getItem(THEME) ? filledMoon : unfilledMoon,
         };
     }
 
@@ -42,6 +44,7 @@ export class About extends React.Component {
                         <i
                             className={this.state.darkSymbol}
                             onClick={() => {
+                                localStorage.setItem(THEME, !this.state.dark);
                                 this.setState({
                                     dark: !this.state.dark,
                                     darkSymbol: this.state.dark ? unfilledMoon : filledMoon,
