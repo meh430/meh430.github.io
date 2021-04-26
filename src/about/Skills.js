@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import { data } from "./Data";
 
 export const Skills = (props) => {
+    data.skills.sort((a, b) => a.skill.localeCompare(b.skill))
     return (
         <div align="center" style={{ margin: "3%" }}>
             <hr
