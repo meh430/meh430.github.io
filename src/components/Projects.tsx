@@ -3,6 +3,7 @@ import {
   Chip,
   CircularProgress,
   Dialog,
+  Icon,
   useTheme,
   Zoom,
 } from "@material-ui/core";
@@ -112,6 +113,7 @@ const ProjectModal = (props: ProjectModalProps) => {
   const textStyle = {
     margin: "0px",
     padding: "0px",
+    color: theme.palette.text.primary,
   };
   const chipStyle = {
     margin: "8px",
@@ -145,6 +147,17 @@ const ProjectModal = (props: ProjectModalProps) => {
     return <Chip key={ft} label={ft} style={chipStyle} color="primary" />;
   };
 
+  const features = project.features.map(getChip);
+  features.push(
+    <Chip
+      icon={<Icon className="fab fa-github" />}
+      label="Github"
+      key="Github"
+      style={{ ...chipStyle, cursor: "pointer" }}
+      onClick={() => window.open(project.projectLink, "_blank")?.focus()}
+    />
+  );
+
   return (
     <Dialog
       open={props.isOpen}
@@ -157,9 +170,16 @@ const ProjectModal = (props: ProjectModalProps) => {
       TransitionComponent={Transition}
     >
       <div className="col" style={wrapperStyle}>
-        <h2 style={{ ...textStyle, marginTop: "20px", textAlign: "center" }}>
-          {project.projectName}
-        </h2>
+        <a
+          href={project.projectLink}
+          rel="noopener noreferrer"
+          target="_blank"
+          style={{ textDecoration: "none" }}
+        >
+          <h2 style={{ ...textStyle, marginTop: "20px", textAlign: "center" }}>
+            {project.projectName}
+          </h2>
+        </a>
         <ImageCarousel {...project} />
         <p
           style={{
@@ -173,7 +193,7 @@ const ProjectModal = (props: ProjectModalProps) => {
           {project.description}
         </p>
         <div className="row" style={chipWrapperStyle}>
-          {project.features.map(getChip)}
+          {features}
         </div>
       </div>
     </Dialog>
