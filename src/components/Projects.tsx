@@ -12,6 +12,7 @@ import { getCardStyle } from "./Profile";
 import { TransitionProps } from "@material-ui/core/transitions/transition";
 import { useRef } from "react";
 import { useEffect } from "react";
+import { useMediaQuery } from "@material-ui/core";
 
 interface ProjectModalProps {
   project: Project;
@@ -99,6 +100,8 @@ const Transition = React.forwardRef(function Transition(
 
 const ProjectModal = (props: ProjectModalProps) => {
   const theme = useTheme();
+  const isMobile = useMediaQuery("(max-width: 420px)");
+
   const project: Project = props.project;
 
   const wrapperStyle = {
@@ -113,12 +116,35 @@ const ProjectModal = (props: ProjectModalProps) => {
   const chipStyle = {
     margin: "8px",
   };
+  const mobileChipStyle = {
+    listStyleType: "none",
+    fontFamily: "'Nunito', sans-serif",
+    backgroundColor: "#7B95E9",
+    color: "white",
+    padding: "5px 15px 5px 15px",
+    margin: "10px",
+    borderRadius: "20px",
+    width: "fit-content",
+    textAlign: "center",
+  } as React.CSSProperties;
   const chipWrapperStyle = {
     marginBottom: "10px",
     width: "100%",
     alignItems: "center",
     justifyContent: "center",
   };
+
+  const getChip = (ft: string) => {
+    if (isMobile) {
+      return (
+        <li key={ft} style={mobileChipStyle}>
+          {ft}
+        </li>
+      );
+    }
+    return <Chip key={ft} label={ft} style={chipStyle} color="primary" />;
+  };
+
   return (
     <Dialog
       open={props.isOpen}
@@ -135,13 +161,19 @@ const ProjectModal = (props: ProjectModalProps) => {
           {project.projectName}
         </h2>
         <ImageCarousel {...project} />
-        <p style={{ ...textStyle, margin: "20px", textAlign: "center" }}>
+        <p
+          style={{
+            ...textStyle,
+            marginBottom: "20px",
+            marginLeft: "20px",
+            marginRight: "20px",
+            textAlign: "center",
+          }}
+        >
           {project.description}
         </p>
         <div className="row" style={chipWrapperStyle}>
-          {project.features.map((ft) => (
-            <Chip key={ft} label={ft} style={chipStyle} color="primary" />
-          ))}
+          {project.features.map(getChip)}
         </div>
       </div>
     </Dialog>
@@ -182,28 +214,31 @@ const ImageCarousel = (project: Project) => {
     borderRadius: "20px",
   };
   const bottomControlStyle = {
-    margin: "10px",
+    marginTop: "20px",
     justifyContent: "center",
     alignItems: "center",
   };
+
+  const getBottomControlStyle = () => {
+    if (project.images.length === 1) {
+      return { ...bottomControlStyle, display: "none" };
+    }
+
+    return bottomControlStyle;
+  };
+
   const iconStyle = {
     fontSize: "36px",
     color: theme.palette.text.primary,
     cursor: "pointer",
-    margin: "10px",
+    marginLeft: "10px",
+    marginRight: "10px",
   };
 
   return (
     <div className="col" style={wrapperStyle}>
       <LoadingImage image={project.images[index]} imageStyle={imageStyle} />
-      <div
-        className="row"
-        style={
-          project.images.length === 1
-            ? { ...bottomControlStyle, display: "none" }
-            : bottomControlStyle
-        }
-      >
+      <div className="row" style={getBottomControlStyle()}>
         <i
           className="fas fa-chevron-circle-left"
           style={iconStyle}
