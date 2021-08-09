@@ -2,7 +2,7 @@
   "name": "personal-site",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://meh430.github.io",
+  "homepage": "https://mehulpillai.tech/",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
@@ -26,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -b master -d build"
   },
   "eslintConfig": {
     "extends": [
