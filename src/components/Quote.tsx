@@ -13,8 +13,10 @@ export const QuoteCard = (props: {
   const [quote, setQuote] = useState({ quote: loading, author: loading });
 
   useEffect(() => {
-    (async () => setQuote(await props.quoteRepo.getQuote()))();
-  }, [props.quoteRepo]);
+    if (props.visible) {
+      (async () => setQuote(await props.quoteRepo.getQuote()))();
+    }
+  }, [props.quoteRepo, props.visible]);
 
   const quoteStyle = {
     padding: "20px",

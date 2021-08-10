@@ -294,10 +294,10 @@ export const LoadingImage = (props: {
   const prevProps = usePrevious(props);
 
   useEffect(() => {
-    if (prevProps?.image !== props.image) {
+    if (prevProps && prevProps.image !== props.image) {
       setLoading(true);
     }
-  }, [setLoading, prevProps?.image, props.image]);
+  }, [setLoading, prevProps, prevProps?.image, props.image]);
 
   const getDisplay = (hide: boolean) => (hide ? "none" : "block");
 

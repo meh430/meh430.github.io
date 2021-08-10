@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { PropsItem } from "../data/Models";
 import { QuoteRepoImpl } from "../data/QuoteRepoImpl";
 import { QuoteCard } from "./Quote";
@@ -45,13 +45,15 @@ export const Header = (props: PropsItem) => {
     fontWeight: "lighter",
   } as React.CSSProperties;
 
+  const quoteRepo = useMemo(() => new QuoteRepoImpl(), []);
+
   return (
     <div className="col" style={{ alignItems: "center" }}>
       <h1 style={headerStyle} onClick={() => setShowQuote((show) => !show)}>
         {message}
         <span style={cursorStyle}>|</span>
       </h1>
-      <QuoteCard quoteRepo={new QuoteRepoImpl()} visible={showQuote} />
+      <QuoteCard quoteRepo={quoteRepo} visible={showQuote} />
     </div>
   );
 };
