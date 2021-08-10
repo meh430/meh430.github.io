@@ -13,7 +13,7 @@ export const QuoteCard = (props: {
   const [quote, setQuote] = useState({ quote: loading, author: loading });
 
   useEffect(() => {
-      (async () => setQuote(await props.quoteRepo.getQuote()))();
+    (async () => setQuote(await props.quoteRepo.getQuote()))();
   }, [props.quoteRepo]);
 
   const quoteStyle = {
