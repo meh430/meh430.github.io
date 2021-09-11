@@ -27,6 +27,7 @@ export const Projects = (props: PropsItem) => {
     <div
       className="row"
       style={{
+        width: "90%",
         justifyContent: "center",
         marginTop: "10px",
         marginBottom: "20px",
@@ -222,7 +223,7 @@ const ImageCarousel = (project: Project) => {
   };
 
   if (project.images.length === 0) {
-    return <i style={{ display: "none" }} />;
+    return <i style={{ margin: "10px" }} />;
   }
 
   const wrapperStyle = {
